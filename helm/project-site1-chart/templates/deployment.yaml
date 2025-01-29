@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: project-site1
-        image: akhandanand/project-site1
+        image: akhandanand/project-site1{{ .Values.image.tag }}
         ports:
         - containerPort: 80
