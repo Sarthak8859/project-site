@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project-site1
-  labels:
-    app: project-site1
+  name: mywebsite
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: project-site1
+      app: mywebsite
   template:
     metadata:
       labels:
-        app: project-site1
+        app: mywebsite
     spec:
       containers:
-      - name: project-site1
-        image: akhandanand/project-site1{{ .Values.image.tag }}
-        ports:
-        - containerPort: 80
+        - name: mywebsite
+          image: akhandanand/project-site1:{{ .Values.image.tag }}
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+          ports:
+            - containerPort: 80
