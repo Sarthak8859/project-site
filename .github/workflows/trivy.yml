@@ -38,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/application-game:${{ github.run_id }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/project-sitef:${{ github.run_id }}
           platforms: linux/amd64,linux/arm64
 
   trivy-security-scan:
@@ -62,7 +62,7 @@ jobs:
           trivy fs --exit-code 1 --severity HIGH,CRITICAL --format table . > trivy-fs-results.txt
       - name: Run Trivy Image Scan (Container Image Vulnerabilities)
         run: |
-          trivy image --exit-code 1 --severity HIGH,CRITICAL --format table -o trivy-image-results.txt ${{ secrets.DOCKERHUB_USERNAME }}/application-game:${{ github.run_id }} || true
+          trivy image --exit-code 1 --severity HIGH,CRITICAL --format table -o trivy-image-results.txt ${{ secrets.DOCKERHUB_USERNAME }}/project-sitef:${{ github.run_id }} || true
       - name: Upload Trivy FS Scan Results
         uses: actions/upload-artifact@v4
         with:
