@@ -98,7 +98,7 @@ jobs:
           git pull origin main --rebase  # Pull latest changes and rebase
       - name: Update Helm Chart Tag
         run: |
-          sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' project-sitef-chart/values.yaml
+          sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' helm/project-sitef-chart/values.yaml
       - name: Commit and Push Changes
         run: |
           git add project-sitef-chart/values.yaml
