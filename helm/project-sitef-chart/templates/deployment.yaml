@@ -5,7 +5,7 @@ metadata:
   labels:
     app: project-sitef
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: project-sitef
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: project-sitef
-        image: akhandanand/project-sitef:{{ .Values.image.tag }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: 80
 
