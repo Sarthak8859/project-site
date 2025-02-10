@@ -101,7 +101,7 @@ jobs:
           sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' helm/project-sitef-chart/values.yaml
       - name: Commit and Push Changes
         run: |
-          git add project-sitef-chart/values.yaml
+          git add helm/project-sitef-chart/values.yaml
           git commit -m "Update tag in Helm chart"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Sarthak8859/project-site.git
           git push origin main
