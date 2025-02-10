@@ -1,6 +1,6 @@
 replicaCount: 1
 
 image:
-  tag: "13245341051"
+  tag: "13245341049"
 
 
