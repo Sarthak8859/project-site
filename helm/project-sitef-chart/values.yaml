@@ -2,5 +2,5 @@ replicaCount: 1
 
 image:
   repository: akhandanand/project-sitef
-  tag: "13248001182"
+  tag: "13256944768"
 
